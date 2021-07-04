@@ -1,17 +1,13 @@
   
-const refs = {
-    decrementBtn: document.querySelector('button[data-action=“decrement”]'),
-    incrementBtn: document.querySelector('button[data-action=“increment”]'),
-    valueEl: document.querySelector('span#value'),
-  };
-  let value = 0;
-  function decreaseValue() {
-    value -= 1;
-    refs.valueEl.textContent = value;
-  }
-  function increaseValue() {
-    value += 1;
-    refs.valueEl.textContent = value;
-  }
-  refs.decrementBtn.addEventListener('click', decreaseValue);
-  refs.incrementBtn.addEventListener('click', increaseValue);
+let counterValue = document.getElementById('value');
+const incr = document.querySelector('button[data-action="increment"]');
+const decr = document.querySelector('button[data-action="decrement"]');
+let valueValue = +(counterValue.textContent);
+incr.addEventListener('click', () => {
+    ++valueValue;
+    return counterValue.textContent = valueValue;
+});
+decr.addEventListener('click', () => {
+    --valueValue
+    return counterValue.textContent = valueValue;
+});
